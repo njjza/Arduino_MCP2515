@@ -1,12 +1,14 @@
-#include "2515_register_map.h"
+//NOTE This file needs to be redesigned after I got my design pattern book back.
+#include "2515.h"
 #include <stdint.h>
 
-/* CAN */
 #define CAN_STATUS uint8_t
 
 struct can_type {
 
 };
+
+/* CAN function prototype */
 void can_init();
 int can_send();
 int can_rx();
