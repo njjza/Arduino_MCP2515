@@ -1,10 +1,6 @@
 #ifndef MCP2515_H
 #define MCP2515_H
 
-#include <stdint.h>
-
-
-
 /* CAN Control Register MAP */
 #define RXF0SIDH            0x00
 #define RXF0SIDL            0x01
@@ -231,17 +227,34 @@
 #define RXB1CTRL_RXM0       0x20
 #define RXB1CTRL_RXM1       0x40
 
-/* CAN */
-#define CAN_STATUS uint8_t
+/* SPI Commands */
+#define SPI_RESET           0xC0
+#define SPI_READ            0x03
+#define SPI_READ_RXBUF      0x90
+#define SPI_WRITE           0x02
+#define SPI_LOAD_TXBUF      0x40
+#define SPI_RTS             0x80
+#define SPI_READ_STATUS     0xA0
+#define SPI_RX_STATUS       0xB0
+#define SPI_BITMOD          0x05
 
-struct can_type {
+/* RXBUF INSTRUCTION MASK */
+#define RXBUF_RXB0SIDH      0x00
+#define RXBUF_RXB0D0        0x02
+#define RXBUF_RXB1SIDH      0x04
+#define RXBUF_RXB1D0        0x06
+#define RXBUF_INST          0x06
 
-};
-void can_init();
-int can_send();
-int can_rx();
-int can_speed();
-int can_spi_tx();
-int can_spi_rx();
+/* TXBUF INSTRUCTION MASK */
+#define TXBUF_TXB0SIDH      0x00
+#define TXBUF_TXB0D0        0x01
+#define TXBUF_TXB1SIDH      0x02
+#define TXBUF_TXB1D0        0x03
+#define TXBUF_TXB2SIDH      0x04
+#define TXBUF_TXB2D0        0x05
+#define TXBUF_INST          0x07
+
+/* Options */ 
+//TODO Implemented infuture
 
 #endif
