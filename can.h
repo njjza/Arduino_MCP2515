@@ -12,10 +12,10 @@ enum msg_type {
 struct can_type {
     unsigned int id;
     bool extend;
-};
+}CAN;
 
 /* CAN function prototype */
-void can_init(int id);
+CAN can_init(int id);
 void can_reset();
 
 bool can_tx();
@@ -26,6 +26,6 @@ bool can_spi_tx();
 bool can_spi_rx();
 
 int can_msg_construct();
-int can_msg_extract();
+int can_msg_extract(msg_type msg);
 
 void can_id_concat(int high, int low);
