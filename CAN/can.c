@@ -1,6 +1,6 @@
 #include "can.h"
 #include "2515.h"
-#include <SPI.h>
+#include "spi.h"
 
 int can_id;
 MSG_TYPE msg_type;

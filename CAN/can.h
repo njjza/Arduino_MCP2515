@@ -1,15 +1,12 @@
 //NOTE This file needs to be redesigned after I got my design pattern book back.
 #include <stdint.h>
 #include <stdbool.h>
+#include <avr/iom328p.h>
 
 #define id_stand_mask       2047
 #define id_extend_mask      262143
 
 /* Pin Map */
-#define CSPIN               123
-#define SOPIN               123
-#define SIPIN               123
-#define SCKPIN              123
 #define INTPIN              123
 
 enum MSG_TYPE {
