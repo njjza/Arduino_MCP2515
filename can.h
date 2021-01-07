@@ -2,20 +2,26 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#define id_stand_mask   2047
-#define id_extend_mask  262143
+#define id_stand_mask       2047
+#define id_extend_mask      262143
 
-enum msg_type {
+/* Pin Map */
+#define CSPIN               123
+#define SOPIN               123
+#define SIPIN               123
+#define SCKPIN              123
+#define INTPIN              123
+
+enum MSG_TYPE {
     STANDARD, EXTENDED, REMOTE, ERROR
 };
 
-struct can_type {
-    unsigned int id;
-    bool extend;
-}CAN;
-
 /* CAN function prototype */
-CAN can_init(int id);
+bool can_init(int id);
+int can_speed(uint32_t bitrate, uint8_t propseg_hint, uint8_t syncjump);
+void can_id_std(int id, uint8_t *buffer);
+void can_id_ext(int id, uint8_t *buffer);
+
 void can_reset();
 
 bool can_tx();

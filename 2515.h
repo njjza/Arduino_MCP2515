@@ -184,9 +184,9 @@
 #define CANINTE_TX0IE       0x04
 #define CANINTE_TX1IE       0x08
 #define CANINTE_TX2IE       0x10
-#define CANINTE_ERRIF       0x20
+#define CANINTE_ERRIE       0x20
 #define CANINTE_WAKIF       0x40
-#define CANINTE_MERRF       0x80
+#define CANINTE_MERRE       0x80
 
 #define CANINTF_RX0IE       0x01
 #define CANINTF_RX1IE       0x02
@@ -227,17 +227,6 @@
 #define RXB1CTRL_RXM0       0x20
 #define RXB1CTRL_RXM1       0x40
 
-/* SPI Commands */
-#define SPI_RESET           0xC0
-#define SPI_READ            0x03
-#define SPI_READ_RXBUF      0x90
-#define SPI_WRITE           0x02
-#define SPI_LOAD_TXBUF      0x40
-#define SPI_RTS             0x80
-#define SPI_READ_STATUS     0xA0
-#define SPI_RX_STATUS       0xB0
-#define SPI_BITMOD          0x05
-
 /* RXBUF INSTRUCTION MASK */
 #define RXBUF_RXB0SIDH      0x00
 #define RXBUF_RXB0D0        0x02
@@ -253,6 +242,17 @@
 #define TXBUF_TXB2SIDH      0x04
 #define TXBUF_TXB2D0        0x05
 #define TXBUF_INST          0x07
+
+/* SPI Commands */
+#define SPI_RESET           0xC0
+#define SPI_READ            0x03
+#define SPI_READ_RXBUF      0x90
+#define SPI_WRITE           0x02
+#define SPI_LOAD_TXBUF      0x40
+#define SPI_RTS             0x80
+#define SPI_READ_STATUS     0xA0
+#define SPI_RX_STATUS       0xB0
+#define SPI_BITMOD          0x05
 
 /* Options */ 
 //TODO Implemented infuture
