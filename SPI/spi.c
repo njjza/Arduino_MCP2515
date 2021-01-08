@@ -6,9 +6,12 @@ void spi_init() {
 }
 
 uint8_t spi_tx (uint8_t * out) {
-    SPDR = dataout
+    DD_SS &= ~SPI_HIGH;
+    
+    SPDR = out;
     while(!(SPSR & (1<<SPIF)))
         ;
     
+    DD_SS |= SPI_HIGH;
     return SPDR;
 }

@@ -2,6 +2,7 @@
  * spi.h
  *
  * A simple SPI implementation, code is directly from datasheet.
+ * It only considered of Master module.
  * 
  * Created: 06-Dec-16 10:45:00
  *  Author: HJ
@@ -13,12 +14,15 @@
 
 #include <avr/iom328p.h>
 
+#define SPI_HIGH        1
+
+/* Pin Map */
 #define SPIPORT			PORTB
 #define DDR_SPI			DDRB
-#define DD_SCK			(1 << 7) /* PB7 */
-#define SPI_MISO		(1 << 6) /* PB6 SD card DO */
-#define DD_MOSI		    (1 << 5) /* PB5 SD card DI */
-#define SPI_CS			(1 << 4) /* PB4 */
+#define DD_SCK			
+#define DD_MISO		    
+#define DD_MOSI		    
+#define DD_SS			
 
 void spi_init();
 uint8_t spi_tx (uint8_t * out);
