@@ -254,6 +254,19 @@
 #define SPI_RX_STATUS       0xB0
 #define SPI_BITMOD          0x05
 
+/* SPECIAL BUF MAPPING FOR SPI */
+#define RXBUF_RXB0SIDH 0x00
+#define RXBUF_RXB0D0 0x02
+#define RXBUF_RXB1SIDH 0x04
+#define RXBUF_RXB1D0 0x06
+
+#define TXBUF_TXB0SIDH 0x00
+#define TXBUF_TXB0D0 0x01
+#define TXBUF_TXB1SIDH 0x02
+#define TXBUF_TXB1D0 0x03
+#define TXBUF_TXB2SIDH 0x04
+#define TXBUF_TXB2D0 0x05
+
 /* Options */ 
 //TODO Implemented infuture
 

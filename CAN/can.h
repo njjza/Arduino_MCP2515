@@ -1,4 +1,7 @@
 //NOTE This file needs to be redesigned after I got my design pattern book back.
+#ifndef CAN_H
+#define CNA_H
+
 #include <stdint.h>
 #include <stdbool.h>
 #include <avr/iom328p.h>
@@ -7,11 +10,10 @@
 #define id_extend_mask      262143
 
 /* Pin Map */
+#define CSPIN               123
+#define CSPIN_HIGH
+#define CSPIN_LOW
 #define INTPIN              123
-
-enum MSG_TYPE {
-    STANDARD, EXTENDED, REMOTE, ERROR
-};
 
 /* CAN function prototype */
 bool can_init(int id);
@@ -21,14 +23,13 @@ void can_id_ext(int id, uint8_t *buffer);
 
 void can_reset();
 
-bool can_tx();
-bool can_rx();
-int can_rx_mode();
-bool can_tx_cancel();
-bool can_spi_tx();
-bool can_spi_rx();
+void can_tx_reg(uint8_t register, uint8_t val);
+uint8_t can_rx_reg(uint8_t addr);
+
+void can_rx_setmask();
+void can_rx_setfilter();
 
 int can_msg_construct();
 int can_msg_extract(msg_type msg);
 
-void can_id_concat(int high, int low);
+#endif

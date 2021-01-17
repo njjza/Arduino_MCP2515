@@ -5,13 +5,11 @@ void spi_init() {
     SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
 }
 
-uint8_t spi_tx (uint8_t * out) {
-    DD_SS &= ~SPI_HIGH;
+uint8_t spi_tx (uint8_t msg, int len) {
     
-    SPDR = out;
+    SPDR = msg;
     while(!(SPSR & (1<<SPIF)))
         ;
-    
-    DD_SS |= SPI_HIGH;
+        
     return SPDR;
 }
